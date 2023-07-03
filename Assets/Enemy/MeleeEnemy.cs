@@ -6,6 +6,7 @@ public class MeleeEnemy : Enemy
 {
     private void Start()
     {
+        HealthBar = GetComponentInChildren<HealthBar>();
         Weapon = GetComponentInChildren<Weapon>();
         InitializeHealth();
     }
@@ -13,6 +14,8 @@ public class MeleeEnemy : Enemy
     public override void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
+
+        HealthBar.UpdateHealthBar(CurrentHealth, MaxHealth);
 
         if (CurrentHealth <= MinHealth)
         {
@@ -33,6 +36,7 @@ public class MeleeEnemy : Enemy
         CurrentHealth = Random.Range(MinRandomHealth, MaxRandomHealth);
 
         MinHealth = 0;
+        MaxHealth = CurrentHealth;
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

@@ -12,6 +12,7 @@ public abstract class Bullet : MonoBehaviour
 
     protected float Damage;
     protected Rigidbody2D _rigidbody2D;
+    protected LayerMask IngoredLayer;
 
     public virtual void Awake()
     {

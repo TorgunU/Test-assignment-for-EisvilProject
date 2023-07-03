@@ -22,6 +22,11 @@ public abstract partial class Weapon : MonoBehaviour
         IsAttackCooldowned = true;
         //IngoredLayer = gameObject.transform.parent.gameObject.layer;
     }
+
+    public float GetAttackFrequency()
+    {
+        return AttackFrequencyInSeconds;
+    }
 }
 
 public abstract partial class Weapon : IAttackable

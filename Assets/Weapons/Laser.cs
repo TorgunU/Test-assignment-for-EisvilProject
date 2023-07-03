@@ -7,7 +7,7 @@ public class Laser : RangeWeapon
     private void Start()
     {
         Name = "Лазер";
-        Damage = 1000;
+        Damage = 50;
         AttackFrequencyInSeconds = 0.2f;
     }
 

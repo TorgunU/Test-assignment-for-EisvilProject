@@ -19,5 +19,7 @@ public abstract class MeleeWeapon : Weapon
         StartCoroutine(CalculatingAttackDelay());
     }
 
+    public abstract void SetDamageBuff(float damageBuff);
+
     protected abstract void Hit();
 }

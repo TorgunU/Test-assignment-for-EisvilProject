@@ -14,13 +14,7 @@ public class MeleeCombatControl : PlayerControl
         MeleeWeapon = GetComponentInChildren<MeleeWeapon>();
 
         PlayerInput.Player.Melee.performed += shootContext => OnHit();
-        //PlayerInput.Player.Melee.performed += OnHit;
     }
-
-    //public void OnHit(InputAction.CallbackContext callbackContext)
-    //{
-    //    MeleeWeapon.Attack();
-    //}
 
     public void OnHit()
     {

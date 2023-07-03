@@ -9,11 +9,16 @@ public class SpaceSword : MeleeWeapon
     {
         Name = "Космический меч";
         Damage = 10;
-        AttackFrequencyInSeconds = 2f;
+        AttackFrequencyInSeconds = 0.2f;
         AttackRange = 0.8f;
         
 
         IngoredLayer = gameObject.transform.parent.gameObject.layer;
+    }
+
+    public override void SetDamageBuff(float damageBuff)
+    {
+        Damage += damageBuff;
     }
 
     protected override void Hit()

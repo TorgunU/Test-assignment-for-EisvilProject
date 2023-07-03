@@ -10,6 +10,8 @@ namespace Assets.Weapons
             base.Awake();
             SpeedShot = 15f;
             Damage = 5;
+
+            IngoredLayer = gameObject.layer;
         }
 
         private void Start()
@@ -21,18 +23,21 @@ namespace Assets.Weapons
         {
             IDamageable damageable;
 
-            if (collision.collider.TryGetComponent(out damageable))
+            if (collision.collider.gameObject.layer != IngoredLayer)
             {
-                damageable.TakeDamage(Damage);
-                Destroy(gameObject);
-            }
-            else if (collision.collider.tag == "Obstacles")
-            {
-                Destroy(gameObject);
-            }
-            else if (collision.collider.TryGetComponent(out LevelBorder levelBorder))
-            {
-                Destroy(gameObject);
+                if (collision.collider.TryGetComponent(out damageable))
+                {
+                    damageable.TakeDamage(Damage);
+                    Destroy(gameObject);
+                }
+                else if (collision.collider.tag == "Obstacles")
+                {
+                    Destroy(gameObject);
+                }
+                else if (collision.collider.TryGetComponent(out LevelBorder levelBorder))
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 

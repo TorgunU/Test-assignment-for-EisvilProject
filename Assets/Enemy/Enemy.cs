@@ -7,10 +7,12 @@ public abstract partial class Enemy : MonoBehaviour
 {
     [SerializeField] protected float CurrentHealth;
 
+    protected float MaxHealth;
+    protected float MinHealth;
     protected float MinRandomHealth;
     protected float MaxRandomHealth;
-    protected float MinHealth;
     protected Weapon Weapon;
+    protected HealthBar HealthBar;
 
     protected abstract void InitializeHealth();
 }
